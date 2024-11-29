@@ -1,58 +1,140 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+  <div>
+    <h2>Growth Chart with Input</h2>
+
+    <div class="chart-container">
+      <!-- Table for Input -->
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Age (Months)</th>
+              <th>Weight (kg)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(value, index) in weights" :key="index">
+              <td>{{ index }}</td>
+              <td>
+                <input
+                  type="number"
+                  v-model="weights[index]"
+                  placeholder="Enter weight"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Chart -->
+      <div class="chart">
+        <VueApexCharts
+          type="line"
+          :options="chartOptions"
+          :series="chartSeries"
+          height="350"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import VueApexCharts from "vue3-apexcharts";
+
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  }
-}
+  components: {
+    VueApexCharts,
+  },
+  data() {
+    return {
+      weights: Array(13).fill(null), // Initial weights (13 months: 0-12)
+    };
+  },
+  computed: {
+    // Chart options for ApexCharts
+    chartOptions() {
+      return {
+        chart: {
+          type: "line",
+          height: 350,
+        },
+        xaxis: {
+          categories: Array.from({ length: 13 }, (_, i) => i), // Age in months (0-12)
+          title: {
+            text: "Age (Months)",
+          },
+        },
+        yaxis: {
+          title: {
+            text: "Weight (kg)",
+          },
+        },
+        colors: ["#1E90FF"],
+        stroke: {
+          curve: "smooth",
+        },
+        markers: {
+          size: 5,
+        },
+      };
+    },
+    // Chart series based on user input
+    chartSeries() {
+      // Filter weights and ensure the graph line is connected
+      const seriesData = this.weights.reduce((acc, weight, index) => {
+        if (weight !== null) acc.push({ x: index, y: parseFloat(weight) });
+        return acc;
+      }, []);
+
+      return [
+        {
+          name: "User Input Weight",
+          data: seriesData,
+        },
+      ];
+    },
+  },
+};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
+<style>
+.chart-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+.table-container {
+  flex: 1;
+  max-width: 300px;
+  overflow-y: auto;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
 }
-a {
-  color: #42b983;
+
+th, td {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+th {
+  background-color: #f9f9f9;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.chart {
+  flex: 2;
 }
 </style>
