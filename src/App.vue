@@ -42,12 +42,6 @@
         Designed by <strong>Elie Koo</strong> - A full-time mother looking for a job while taking care of her baby.
       </p>
       <div class="adsense">
-        <!-- Google AdSense code -->
-        <ins class="adsbygoogle"
-            style="display:block"
-            data-ad-client="ca-pub-XXXXXXX"
-            data-ad-slot="XXXXXXX" 
-            data-ad-format="auto"></ins>
       </div>
     </div>
     </footer>
