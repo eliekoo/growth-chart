@@ -31,7 +31,26 @@
     <main class="app-main">
       <component :is="currentChart" />
     </main>
+
   </div>
+      <!-- Global Footer -->
+      <footer class="footer">
+    <div class="footer-content">
+      <p class="disclaimer">Disclaimer: This is a reference chart and not medical advice.</p>
+      <p class="data-source">Data source: World Health Organization (WHO)</p>
+      <p class="designer">
+        Designed by <strong>Elie Koo</strong> - A full-time mother looking for a job while taking care of her baby.
+      </p>
+      <div class="adsense">
+        <!-- Google AdSense code -->
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-XXXXXXX"
+            data-ad-slot="XXXXXXX" 
+            data-ad-format="auto"></ins>
+      </div>
+    </div>
+    </footer>
 
   
 </template>
@@ -91,6 +110,17 @@ export default {
       this.selectedChart = chart;
     },
   },
+  mounted() {
+    // Dynamically load Google AdSense script
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+    script.onload = () => {
+      // Push the ad code once the script is loaded
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    };
+    document.head.appendChild(script);
+  }
 };
 </script>
 
@@ -175,5 +205,37 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* Global Footer Styles */
+.footer {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+
+.footer-content p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.disclaimer {
+  font-style: italic;
+  color: #666;
+}
+
+.data-source {
+  color: #333;
+}
+
+.designer {
+  font-weight: bold;
+  color: #333;
+}
+
+.adsense {
+  margin-top: 15px;
 }
 </style>

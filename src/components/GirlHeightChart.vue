@@ -1,246 +1,79 @@
 <template>
   <div id="app">
-    <apexchart ref="chart" type="rangeArea" :options="chartOptions" :series="chartSeries"></apexchart>
+    <h1>CSV Data Parsing</h1>
+    <select v-model="selectedFile" @change="loadCSV">
+      <option value="" disabled>Select a CSV File</option>
+      <option v-for="file in csvFiles" :key="file" :value="file">{{ file }}</option>
+    </select>
+
+    <div v-if="parsedData">
+      <h2>Parsed Data:</h2>
+      <div v-for="(dataset, index) in parsedData.datasets" :key="index">
+        <h3>{{ dataset.label }}</h3>
+        <ul>
+          <li v-for="(value, idx) in dataset.data" :key="idx">{{ value }}</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import VueApexCharts from "vue3-apexcharts";
-
 export default {
-  name: "GirlHeightChart",
-  components: {
-    apexchart: VueApexCharts,
-  },
   data() {
     return {
-      // Use shallow copies to prevent deep reactivity
-      chartOptions: Object.freeze({
-        chart: {
-          type: "rangeArea",
-          height: 350,
-        },
-        colors: ["#FF0000", "#FFA500", "#90EE90", "#008000", "#D3D3D3"],
-        dataLabels: {
-          enabled: false,
-        },
-        stroke: {
-          curve: "monotoneCubic"
-        },
-        markers: {
-          size: 0
-        },
-        title: {
-          text: "Boy weight Growth Chart (0-24 Months)",
-          align: "center"
-        },
-        fill: {
-          opacity: 0.3
-        },
-        xaxis: {
-          categories: Array.from({ length: 25 }, (_, i) => i.toString()),
-          title: {
-            text: "Month",
-          },
-        },
-        yaxis: {
-          title: {
-            text: "Value",
-          },
-        },
-        legend: {
-          position: "top",
-          horizontalAlign: "left"
-        },
-      }),
-      chartSeries: Object.freeze([
-      {
-          name: "2nd",
-          data: [
-            { x: 0, y: [0, 2.459312] },
-            { x: 1, y: [0, 3.39089] },
-            { x: 2, y: [0, 4.31889] },
-            { x: 3, y: [0, 5.018434] },
-            { x: 4, y: [0, 5.561377] },
-            { x: 5, y: [0, 5.996672] },
-            { x: 6, y: [0, 6.352967] },
-            { x: 7, y: [0, 6.653301] },
-            { x: 8, y: [0, 6.913126] },
-            { x: 9, y: [0, 7.144822] },
-            { x: 10, y: [0, 7.356558] },
-            { x: 11, y: [0, 7.55441] },
-            { x: 12, y: [0, 7.742219] },
-            { x: 13, y: [0, 7.922091] },
-            { x: 14, y: [0, 8.095984] },
-            { x: 15, y: [0, 8.265127] },
-            { x: 16, y: [0, 8.430734] },
-            { x: 17, y: [0, 8.593128] },
-            { x: 18, y: [0, 8.752902] },
-            { x: 19, y: [0, 8.909889] },
-            { x: 20, y: [0, 9.065209] },
-            { x: 21, y: [0, 9.219037] },
-            { x: 22, y: [0, 9.371554] },
-            { x: 23, y: [0, 9.522741] },
-            { x: 24, y: [0, 9.672527] },
-          ],
-        },
-        {
-          name: "5th",
-          data: [
-            { x: 0, y: [2.459312, 2.603994] },
-            { x: 1, y: [3.39089, 3.566165] },
-            { x: 2, y: [4.31889, 4.522344] },
-            { x: 3, y: [5.018434, 5.240269] },
-            { x: 4, y: [5.561377, 5.797135] },
-            { x: 5, y: [5.996672, 6.244465] },
-            { x: 6, y: [6.352967, 6.611702] },
-            { x: 7, y: [6.653301, 6.922131] },
-            { x: 8, y: [6.913126, 7.19127] },
-            { x: 9, y: [7.144822, 7.431644] },
-            { x: 10, y: [7.356558, 7.651572] },
-            { x: 11, y: [7.55441, 7.857229] },
-            { x: 12, y: [7.742219, 8.052577] },
-            { x: 13, y: [7.922091, 8.239848] },
-            { x: 14, y: [8.095984, 8.421033] },
-            { x: 15, y: [8.265127, 8.597424] },
-            { x: 16, y: [8.430734, 8.770274] },
-            { x: 17, y: [8.593128, 8.939942] },
-            { x: 18, y: [8.752902, 9.107002] },
-            { x: 19, y: [8.909889, 9.27136] },
-            { x: 20, y: [9.065209, 9.434095] },
-            { x: 21, y: [9.219037, 9.595435] },
-            { x: 22, y: [9.371554, 9.755556] },
-            { x: 23, y: [9.522741, 9.914417] },
-            { x: 24, y: [9.672527, 10.07194] },
-          ],
-        },
-        {
-          name: "5th - 10th Percentile",
-          data: [
-            { x: 0, y: [2.603994, 2.757621] },
-            { x: 1, y: [3.566165, 3.752603] },
-            { x: 2, y: [4.522344, 4.738362] },
-            { x: 3, y: [5.240269, 5.475519] },
-            { x: 4, y: [5.797135, 6.046988] },
-            { x: 5, y: [6.244465, 6.507016] },
-            { x: 6, y: [6.611702, 6.885864] },
-            { x: 7, y: [6.922131, 7.207057] },
-            { x: 8, y: [7.19127, 7.486158] },
-            { x: 9, y: [7.431644, 7.735837] },
-            { x: 10, y: [7.651572, 7.964565] },
-            { x: 11, y: [7.857229, 8.178615] },
-            { x: 12, y: [8.052577, 8.382077] },
-            { x: 13, y: [8.239848, 8.577324] },
-            { x: 14, y: [8.421033, 8.76637] },
-            { x: 15, y: [8.597424, 8.950586] },
-            { x: 16, y: [8.770274, 9.13126] },
-            { x: 17, y: [8.939942, 9.308795] },
-            { x: 18, y: [9.107002, 9.483736] },
-            { x: 19, y: [9.27136, 9.656076] },
-            { x: 20, y: [9.434095, 9.826848] },
-            { x: 21, y: [9.595435, 9.996335] },
-            { x: 22, y: [9.755556, 10.16471] },
-            { x: 23, y: [9.914417, 10.33191] },
-            { x: 24, y: [10.07194, 10.49784] },
-          ],
-        },
-        {
-          name: "10th - 50th Percentile",
-          data: [
-            { x: 0, y: [2.757621, 3.3464] },
-            { x: 1, y: [3.752603, 4.4709] },
-            { x: 2, y: [4.738362, 5.5675] },
-            { x: 3, y: [5.475519, 6.3762] },
-            { x: 4, y: [6.046988, 7.0023] },
-            { x: 5, y: [6.507016, 7.5105] },
-            { x: 6, y: [6.885864, 7.934] },
-            { x: 7, y: [7.207057, 8.297] },
-            { x: 8, y: [7.486158, 8.6151] },
-            { x: 9, y: [7.735837, 8.9014] },
-            { x: 10, y: [7.964565, 9.1649] },
-            { x: 11, y: [8.178615, 9.4122] },
-            { x: 12, y: [8.382077, 9.6479] },
-            { x: 13, y: [8.577324, 9.8749] },
-            { x: 14, y: [8.76637, 10.0953] },
-            { x: 15, y: [8.950586, 10.3108] },
-            { x: 16, y: [9.13126, 10.5228] },
-            { x: 17, y: [9.308795, 10.7319] },
-            { x: 18, y: [9.483736, 10.9385] },
-            { x: 19, y: [9.656076, 11.143] },
-            { x: 20, y: [9.826848, 11.3462] },
-            { x: 21, y: [9.996335, 11.5486] },
-            { x: 22, y: [10.16471, 11.7504] },
-            { x: 23, y: [10.33191, 11.9514] },
-            { x: 24, y: [10.49784, 12.1515] }
-          ]
-        },
-        {
-          name: "50th - 95th Percentile",
-          data: [
-            { x: 0, y: [3.3464, 4.011499] },
-            { x: 1, y: [4.4709, 5.290726] },
-            { x: 2, y: [5.5675, 6.509323] },
-            { x: 3, y: [6.3762, 7.395936] },
-            { x: 4, y: [7.0023, 8.0822] },
-            { x: 5, y: [7.5105, 8.6245] },
-            { x: 6, y: [7.934, 9.1179] },
-            { x: 7, y: [8.297, 9.5591] },
-            { x: 8, y: [8.6151, 9.9572] },
-            { x: 9, y: [8.9014, 10.3158] },
-            { x: 10, y: [9.1649, 10.6469] },
-            { x: 11, y: [9.4122, 10.9529] },
-            { x: 12, y: [9.6479, 11.2354] },
-            { x: 13, y: [9.8749, 11.4963] },
-            { x: 14, y: [10.0953, 11.7365] },
-            { x: 15, y: [10.3108, 11.957] },
-            { x: 16, y: [10.5228, 12.1592] },
-            { x: 17, y: [10.7319, 12.3439] },
-            { x: 18, y: [10.9385, 12.5111] },
-            { x: 19, y: [11.143, 12.6612] },
-            { x: 20, y: [11.3462, 12.7951] },
-            { x: 21, y: [11.5486, 12.9133] },
-            { x: 22, y: [11.7504, 13.0153] },
-            { x: 23, y: [11.9514, 13.1019] },
-            { x: 24, y: [12.1515, 13.1741] }
-          ]
-        },
-        {
-          name: "95th and Above Percentile",
-          data: [
-            { x: 0, y: [4.011499, 4.679146] },
-            { x: 1, y: [5.290726, 6.101132] },
-            { x: 2, y: [6.509323, 7.446746] },
-            { x: 3, y: [7.395936, 8.510626] },
-            { x: 4, y: [8.0822, 9.0853] },
-            { x: 5, y: [8.6245, 9.6093] },
-            { x: 6, y: [9.1179, 10.0752] },
-            { x: 7, y: [9.5591, 10.4961] },
-            { x: 8, y: [9.9572, 10.8724] },
-            { x: 9, y: [10.3158, 11.2051] },
-            { x: 10, y: [10.6469, 11.4974] },
-            { x: 11, y: [10.9529, 11.7528] },
-            { x: 12, y: [11.2354, 11.9731] },
-            { x: 13, y: [11.4963, 12.1604] },
-            { x: 14, y: [11.7365, 12.3156] },
-            { x: 15, y: [11.957, 12.4412] },
-            { x: 16, y: [12.1592, 12.5398] },
-            { x: 17, y: [12.3439, 12.6125] },
-            { x: 18, y: [12.5111, 12.6618] },
-            { x: 19, y: [12.6612, 12.6896] },
-            { x: 20, y: [12.7951, 12.6909] },
-            { x: 21, y: [12.9133, 12.6701] },
-            { x: 22, y: [13.0153, 12.6293] },
-            { x: 23, y: [13.1019, 12.5703] },
-            { x: 24, y: [13.1741, 12.4947] }
-          ]
-        }
-      ]),
+      csvFiles: ["b_age_length.csv", "b_age_weight.csv"], // List your CSV files here
+      selectedFile: "",
+      parsedData: null // To store parsed CSV data
     };
   },
+  methods: {
+    // Load and parse the selected CSV file
+    async loadCSV() {
+      if (!this.selectedFile) return;
+
+      try {
+        const response = await fetch(`/data/${this.selectedFile}`);
+        if (!response.ok) throw new Error("Failed to fetch CSV");
+
+        const csvContent = await response.text();
+        this.parsedData = this.parseCSV(csvContent);
+      } catch (error) {
+        console.error("Error loading CSV:", error);
+      }
+    },
+    // Parse the CSV content
+    parseCSV(content) {
+      const rows = content.split("\n").filter((row) => row.trim() !== "");
+      const headers = rows[0].split(","); // First row as headers
+      const dataRows = rows.slice(1).map((row) => row.split(",").map(Number)); // Remaining rows as data
+
+      const datasets = headers.slice(1).map((header, index) => {
+        const data = dataRows.map((row) => row[index + 1]); // Skip the first column (Month)
+        return { label: header.trim(), data };
+      });
+
+      const labels = dataRows.map((row) => row[0]); // First column (Month) as labels
+      return { labels, datasets };
+    }
+  },
+  watch: {
+    // Automatically load CSV when a file is selected
+    selectedFile() {
+      if (this.selectedFile) {
+        this.loadCSV();
+      }
+    }
+  }
 };
 </script>
 
 <style>
-
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+select {
+  margin-bottom: 20px;
+}
 </style>
-
