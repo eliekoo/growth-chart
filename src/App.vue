@@ -44,6 +44,16 @@
       <div class="adsense">
       </div>
     </div>
+      <p>{{ $t('disclaimer') }}</p>
+        <p>{{ $t('source') }}</p>
+        <p>{{ $t('design_by') }}</p>
+        <!-- Language Selector -->
+        <select v-model="currentLocale" @change="changeLocale">
+          <option value="en_us">English (US)</option>
+          <option value="ms_my">Malay (Malaysia)</option>
+          <option value="zh_tw">Chinese (Traditional)</option>
+          <option value="zh_cn">Chinese (Simplified)</option>
+        </select>
     </footer>
 
   
@@ -69,6 +79,7 @@ export default {
   },
   data() {
     return {
+      currentLocale: this.$i18n.locale,
       selectedGender: null,
       selectedChart: null,
       genders: [
@@ -112,6 +123,9 @@ export default {
     selectChart(chart) {
       this.selectedChart = chart;
     },
+    changeLocale() {
+      this.$i18n.locale = this.currentLocale;
+    }
   },
   mounted() {
     // Dynamically load Google AdSense script
