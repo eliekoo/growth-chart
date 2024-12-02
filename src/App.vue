@@ -52,15 +52,20 @@
 <script>
 import BoyWeight from "./components/BoyWeightChart.vue";
 import BoyHeight from "./components/BoyHeightChart.vue";
+import BoyHeadCircumference from "./components/BoyHeadCircumferenceChart.vue";
+
 import GirlHeight from "./components/GirlHeightChart.vue";
-import GirlHeadCircum from "./components/GirlHeadCircum.vue";
+import GirlWeight from "./components/GirlWeightChart.vue";
+import GirlHeadCircumference from "./components/GirlHeadCircumferenceChart.vue";
 
 export default {
   components: {
     BoyWeight,
     BoyHeight,
+    BoyHeadCircumference,
     GirlHeight,
-    GirlHeadCircum,
+    GirlWeight,
+    GirlHeadCircumference,
   },
   data() {
     return {
@@ -74,8 +79,10 @@ export default {
         boy: [
           { value: "boy-weight", label: "Weight" },
           { value: "boy-height", label: "Height" },
+          { value: "boy-headcircum", label: "Head Circumference" },
         ],
         girl: [
+          { value: "girl-weight", label: "Weight" },
           { value: "girl-height", label: "Height" },
           { value: "girl-headcircum", label: "Head Circumference" },
         ],
@@ -90,8 +97,10 @@ export default {
       // Dynamically determine which component to render
       if (this.selectedChart === "boy-weight") return "BoyWeight";
       if (this.selectedChart === "boy-height") return "BoyHeight";
+      if (this.selectedChart === "boy-headcircum") return "BoyHeadCircumference";
+      if (this.selectedChart === "girl-weight") return "GirlWeight";
       if (this.selectedChart === "girl-height") return "GirlHeight";
-      if (this.selectedChart === "girl-headcircum") return "GirlHeadCircum";
+      if (this.selectedChart === "girl-headcircum") return "GirlHeadCircumference";
       return null; // Show nothing if no chart is selected
     },
   },

@@ -1,5 +1,11 @@
 <template>
-  <GrowthChart csv-file="b_age_length.csv" chart-title="Boy Height Chart (0-24 months)" table-title="Boy Height" :y-axis="yAxisConfig"/>
+  <GrowthChart 
+    csv-file="b_age_length.csv" 
+    chart-title="Boy Height Chart (0-24 months)" table-title="Boy Height"
+    table-subtitle="Height" 
+    table-measurement="cm" 
+    :y-axis="yAxisConfig"
+  />
 </template>
 
 <script>

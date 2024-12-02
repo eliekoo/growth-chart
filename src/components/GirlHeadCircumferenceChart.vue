@@ -1,8 +1,8 @@
 <template>
   <GrowthChart 
-    csv-file="g_age_length.csv" 
-    chart-title="Girl Height Chart (0-24 months)" table-title="Girl Height"
-    table-subtitle="Height" 
+    csv-file="g_age_headc.csv" 
+    chart-title="Girl Head Circumference Chart (0-24 months)" table-title="Girl Head Circumference"
+    table-subtitle="Head Circumference" 
     table-measurement="cm" 
     :y-axis="yAxisConfig"
   />
@@ -11,11 +11,11 @@
 <script>
 import GrowthChart from "./GrowthChart.vue";
 export default {
-  name: "GirlHeightChart",
+  name: "GirlHeadCircumferenceChart",
   components: { GrowthChart },
   yAxisConfig: {
     title: {
-        text: "Height (cm)"
+        text: "Head Circumference (cm)"
     },
     decimalsInFloat: 2,
     // min: 0,

@@ -19,7 +19,7 @@
             <thead>
               <tr>
                 <th>Age (Months)</th>
-                <th>Weight (kg)</th>
+                <th>{{tableSubtitle}} ({{ tableMeasurement }})</th>
               </tr>
             </thead>
             <tbody>
@@ -29,7 +29,7 @@
                   <input
                     type="number"
                     v-model="weights[index]"
-                    placeholder="Enter weight"
+                    :placeholder="tableTitle"
                     @input="updateChart"
                   />
                 </td>
@@ -49,8 +49,10 @@
     components: { VueApexCharts },
     props: {
       csvFile: { type: String, required: true },
-      tableTitle: { type: String, default: "Growth Chart" },
       chartTitle: { type: String, default: "Growth Line" },
+      tableTitle: { type: String, default: "Growth Chart" },
+      tableSubtitle: { type: String, default: "Value" },
+      tableMeasurement: { type: String, default: "cm" },
       yAxis: { type: Object, required: true }
     },
     data() {
@@ -95,7 +97,7 @@
                 text: "Months"
             }
             },
-            yaxis: { ...this.yAxis }, // Use the passed y-axis prop here
+            yaxis: { ...this.yAxis, decimalsInFloat: 2, }, // Use the passed y-axis prop here
             stroke: {
             curve: "monotoneCubic"
             },

@@ -1,7 +1,7 @@
 <template>
   <GrowthChart 
-    csv-file="b_age_weight.csv" 
-    chart-title="Boy Weight Chart (0-24 months)" table-title="Boy weight"
+    csv-file="g_age_weight.csv" 
+    chart-title="Girl Weight Chart (0-24 months)" table-title="Girl weight"
     table-subtitle="Weight" 
     table-measurement="kg" 
     :y-axis="yAxisConfig"
@@ -11,7 +11,7 @@
 <script>
 import GrowthChart from "./GrowthChart.vue";
 export default {
-  name: "BoyWeightChart",
+  name: "GirlWeightChart",
   components: { GrowthChart },
   data() {
     return {
