@@ -1,6 +1,7 @@
 {
     "welcome": "Welcome to Growth Chart App",
-    "disclaimer": "This is a reference chart and may not replace professional advice.",
+    "disclaimer": "<strong>Disclaimer:</strong> This chart is intended for informational purposes only and should not be considered medical advice. For personalized medical guidance, please consult a qualified healthcare professional.",
+    "note": " <strong>Note:</strong> While every effort has been made to ensure the accuracy of the information, this reference chart may not capture individual medical circumstances or the most recent updates. Always prioritize professional advice for any health-related decisions.",
     "source": "Data Source: WHO",
     "design_by": "Design by Elie Koo, a full-time mother looking for job opportunities while taking care of her baby."
   }

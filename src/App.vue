@@ -33,30 +33,29 @@
     </main>
 
   </div>
-      <!-- Global Footer -->
-      <footer class="footer">
-    <div class="footer-content">
-      <p class="disclaimer">Disclaimer: This is a reference chart and not medical advice.</p>
-      <p class="data-source">Data source: World Health Organization (WHO)</p>
-      <p class="designer">
-        Designed by <strong>Elie Koo</strong> - A full-time mother looking for a job while taking care of her baby.
-      </p>
-      <div class="adsense">
+
+  <div class="mb-5 p-4 bg-white rounded-lg shadow md:items-center md:justify-between md:p-6 dark:bg-gray-800 mb-5">
+    <div class="text-center">
+      <select class="font-small rounded-lg text-sm px-4 py-2 inline-flex items-center" v-model="currentLocale" @change="changeLocale">
+        <option value="en_us">English (US)</option>
+        <option value="ms_my">Malay (Malaysia)</option>
+        <option value="zh_tw">Chinese (Traditional)</option>
+        <option value="zh_cn">Chinese (Simplified)</option>
+      </select>
+    </div>
+      <div class="md:justify-between text-center">
+        <div class="ml-3 footer-content mb-4 md:mb-0">
+          <p class="disclaimer" v-html="$t('disclaimer')"></p>
+          <p class="disclaimer" v-html="$t('note')"></p>
+          <p class="data-source">
+            Data source: 
+            <a target="_blank" href="https://www.who.int/tools/child-growth-standards/standards">World Health Organization (WHO)</a> | <a target="_blank" href="https://hq.moh.gov.my/bpkk/images/3.Penerbitan/2.Orang_Awam/8.Kesihatan_Kanak_Kanak/2.PDF/12_rekod_kesihatan_bayi_dan_kanak-kanak_0-6_tahun_-perempuan.pdf">Ministry of Health, Malaysia (Girl)</a>
+            <!-- {{ $t('dynamic_message', { value: quantity }) }} -->
+          </p>
+        </div>
       </div>
     </div>
-      <p>{{ $t('disclaimer') }}</p>
-        <p>{{ $t('source') }}</p>
-        <p>{{ $t('design_by') }}</p>
-        <!-- Language Selector -->
-        <select v-model="currentLocale" @change="changeLocale">
-          <option value="en_us">English (US)</option>
-          <option value="ms_my">Malay (Malaysia)</option>
-          <option value="zh_tw">Chinese (Traditional)</option>
-          <option value="zh_cn">Chinese (Simplified)</option>
-        </select>
-    </footer>
-
-  
+    <FooterView></FooterView>
 </template>
 
 <script>
@@ -68,6 +67,10 @@ import GirlHeight from "./components/GirlHeightChart.vue";
 import GirlWeight from "./components/GirlWeightChart.vue";
 import GirlHeadCircumference from "./components/GirlHeadCircumferenceChart.vue";
 
+import './assets/app.css';
+import FooterView from "./components/FooterView.vue";
+
+
 export default {
   components: {
     BoyWeight,
@@ -76,12 +79,13 @@ export default {
     GirlHeight,
     GirlWeight,
     GirlHeadCircumference,
+    FooterView
   },
   data() {
     return {
       currentLocale: this.$i18n.locale,
-      selectedGender: null,
-      selectedChart: null,
+      selectedGender: "boy",
+      selectedChart: "boy-weight",
       genders: [
         { value: "boy", label: "Boy" },
         { value: "girl", label: "Girl" },
@@ -142,117 +146,3 @@ export default {
 </script>
 
 
-<style scoped>
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
-}
-
-/* App Container */
-#app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  min-height: 100vh;
-  padding: 20px;
-}
-
-/* Header */
-.app-header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.app-header h1 {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-}
-
-.button-group {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.option-group {
-  margin: 10px;
-}
-
-.option-group label {
-  font-weight: bold;
-  margin-right: 10px;
-}
-
-/* Buttons */
-.option-button {
-  padding: 10px 15px;
-  margin: 5px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s, border-color 0.3s;
-}
-
-.option-button.active {
-  background-color: #007bff;
-  color: white;
-  border-color: #0056b3;
-}
-
-.option-button:hover {
-  background-color: #0056b3;
-  color: white;
-}
-
-/* Main Section */
-.app-main {
-  width: 100%;
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Global Footer Styles */
-.footer {
-  margin-top: 40px;
-  padding: 20px;
-  background-color: #f9f9f9;
-  text-align: center;
-  border-top: 1px solid #ddd;
-}
-
-.footer-content p {
-  margin: 5px 0;
-  font-size: 14px;
-}
-
-.disclaimer {
-  font-style: italic;
-  color: #666;
-}
-
-.data-source {
-  color: #333;
-}
-
-.designer {
-  font-weight: bold;
-  color: #333;
-}
-
-.adsense {
-  margin-top: 15px;
-}
-</style>
