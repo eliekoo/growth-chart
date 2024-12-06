@@ -135,28 +135,35 @@
             // colors: ['#eab1a1','#ffe7c7', '#e1f8dc',"#caf1de", "#acddde"],
             colors: ['#f8d7da','#fff3cd','#e2e3e5', '#e2e3e5','#d4edda', '#e2e3e5', '#e2e3e5','#e2e3e5', '#e2e3e5','#f09c0a'],
             xaxis: {
-            categories: Array.from({ length: 25 }, (_, i) => i), // Months 0-24
-            title: {
+              categories: Array.from({ length: 25 }, (_, i) => i), // Months 0-24
+              title: {
                 text: "Months"
-            }
+              },
+              labels: {
+                rotate: 0
+              }
             },
-            yaxis: { ...this.yAxis, decimalsInFloat: 2, }, // Use the passed y-axis prop here
+            yaxis: 
+            { 
+              ...this.yAxis, 
+              decimalsInFloat: 2, 
+            },
             stroke: {
-            curve: "monotoneCubic"
+              curve: "monotoneCubic"
             },
             title: {
-            text:  this.chartTitle, 
-            align: "center"
+              text:  this.chartTitle, 
+              align: "center"
             },
             dataLabels: {
-            enabled: false
+              enabled: false
             },
             legend: {
-            position: 'top',
+              position: 'top',
             },
             tooltip: {
-            shared: false,
-            intersect: false,
+              shared: false,
+              intersect: false,
             }
         }),
       };
@@ -194,7 +201,7 @@
         const headers = rows[0].split(",");
         const dataRows = rows.slice(1).map((row) => row.split(",").map(Number));
         return headers.slice(1).map((header, index) => ({
-          name: header.trim(),
+          name: this.$t(`chartHeaders.${header.replace(/\s+/g, '_')}`),
           data: dataRows.map((row) => row[index + 1])
         }));
       },
