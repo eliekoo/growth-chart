@@ -1,9 +1,9 @@
 <template>
   <GrowthChart 
     csv-file="g_age_weight.csv" 
-    chart-title="Girl Weight Chart (0-24 months)" table-title="Girl weight"
-    table-subtitle="Weight" 
-    table-measurement="kg" 
+    :chart-title="$t('chart.girl.weight.chart_title')" :table-title="$t('chart.girl.weight.table_title')"
+    :table-subtitle="$t('chart.girl.weight.table_subtitle')" 
+    :table-measurement="$t('chart.girl.weight.table_measurement')" 
     :y-axis="yAxisConfig"
   />
 </template>
@@ -17,13 +17,13 @@ export default {
     return {
       yAxisConfig: {
         title: {
-            text: "Weight (kg)"
+          text: this.$t("chart.girl.weight.y_axis_title"),
         },
         decimalsInFloat: 2,
-        min: 0,
-        max: 17
-      }
+        // min: 0,
+        // max: 17
+      },
     };
-  }
+  },
 };
 </script>

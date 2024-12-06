@@ -1,9 +1,9 @@
 <template>
     <header class="app-header">
-        <h1>Infant Growth Chart (0 - 24 months)</h1>
+        <h1>{{ $t("home.growth_chart") }}</h1>
         <div class="button-group">
           <div class="option-group">
-            <label>Gender:</label>
+            <label>{{ $t("home.gender") }}</label>
             <button
               v-for="gender in genders"
               :key="gender.value"
@@ -16,7 +16,7 @@
         </div>
   
         <div class="option-group" v-if="selectedGender">
-          <label>Chart:</label>
+          <label>{{ $t("home.chart") }}</label>
           <button
             v-for="chart in availableCharts"
             :key="chart.value"
@@ -33,32 +33,30 @@
   
     <div class="mx-auto py-8 max-w-4xl">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <!-- Left Card: What is a Percentile -->
       <CardView class="max-w-sm mx-auto">
         <template v-slot:header>
-          <h5 class="text-lg font-medium text-gray-800">What is a Percentile?</h5>
+          <h5 class="text-lg font-medium text-gray-800">{{ $t("description.perceptile_title") }}</h5>
         </template>
-        <p class="text-gray-700 text-sm leading-relaxed mb-3">Percentile is a statistical measure that indicates the relative position of a value within a dataset. It tells you the percentage of data points that fall below a specific value.</p>
+        <p class="text-gray-700 text-sm leading-relaxed mb-3">{{ $t("description.perceptile_desc") }}</p>
         <p><br></p>
-        <p class="text-gray-700 text-sm leading-relaxed mb-3">For example:</p>
-        <p class="text-gray-700 text-sm leading-relaxed mb-3">If your child's weight is in the <span class="font-semibold text-blue-600">60th percentile</span>, it means <strong>60%</strong> of children weigh less than your child, and <strong>40%</strong> weigh more.</p>
+        <p class="text-gray-700 text-sm leading-relaxed mb-3">{{ $t("description.for_example") }}</p>
+        <p class="text-gray-700 text-sm leading-relaxed mb-3" v-html="$t('description.ex_desc')"></p>
       </CardView>
   
-      <!-- Right Card: How to Read Percentile on a Graph -->
       <CardView class="max-w-sm mx-auto">
         <template v-slot:header>
-          <h5 class="text-lg font-medium text-gray-800">How to Read Percentile on a Graph?</h5>
+          <h5 class="text-lg font-medium text-gray-800">{{ $t("description.how_to_read") }}</h5>
         </template>
         <div class="text-gray-700 text-sm leading-relaxed">
           <ul class="list-inside space-y-2">
-            <li><span class="font-semibold text-blue-600">Percentile lines</span> (e.g., P3, P15, P50, P85, P97) represent various percentiles.</li>
-            <li><strong>P50 (50th Percentile)</strong>: The median, considered the average or normal value.</li>
-            <li>If your child's measurements fall along or near the <span class="font-semibold text-blue-600">P50 line</span>, it is close to the average for their age and gender.</li>
-            <li>Measurements between P3 and P97 are generally within the normal range. Falling below P3 or above P97 may warrant consulting a healthcare provider.</li>
+            <li v-html="$t('description.perc_point1')"></li>
+            <li v-html="$t('description.perc_point2')"></li>
+            <li v-html="$t('description.perc_point3')"></li>
+            <li>{{ $t("description.perc_point4") }}</li>
           </ul>
         </div>
         <template v-slot:footer>
-          <router-link to="/percentile-graph" class="btn btn-primary mt-4 text-sm">Learn More</router-link>
+          <router-link to="/percentile-graph" class="btn btn-primary mt-4 text-sm">{{ $t("description.learn_more") }}</router-link>
         </template>
       </CardView>
     </div>
@@ -68,19 +66,19 @@
     <CardView>
       <div class="text-center">
         <select class="font-small rounded-lg text-sm px-4 py-2 inline-flex items-center" v-model="currentLocale" @change="changeLocale">
-          <option value="en_us">English (US)</option>
-          <option value="ms_my">Malay (Malaysia)</option>
-          <option value="zh_tw">Chinese (Traditional)</option>
-          <option value="zh_cn">Chinese (Simplified)</option>
+          <option value="en_us">{{ $t("locale.english") }}</option>
+          <option value="ms_my">{{ $t("locale.malay") }}</option>
+          <option value="zh_tw">{{ $t("locale.chinese_tw") }}</option>
+          <option value="zh_cn">{{ $t("locale.chinese_cn") }}</option>
         </select>
       </div>
       
       <div class="md:justify-between text-center">
         <div class="ml-3 footer-content mb-4 md:mb-0">
-          <p class="disclaimer" v-html="$t('disclaimer')"></p>
-          <p class="disclaimer" v-html="$t('note')"></p>
-          <p class="data-source">
-            Data source: 
+          <p class="disclaimer" v-html="$t('footer.disclaimer')"></p>
+          <p class="disclaimer" v-html="$t('footer.note')"></p>
+          <p class="data-source"> {{ $t("footer.data_source") }}
+            
             <a target="_blank" href="https://www.who.int/tools/child-growth-standards/standards">World Health Organization (WHO)</a> | 
             <a target="_blank" href="https://hq.moh.gov.my/bpkk/images/3.Penerbitan/2.Orang_Awam/8.Kesihatan_Kanak_Kanak/2.PDF/12_rekod_kesihatan_bayi_dan_kanak-kanak_0-6_tahun_-perempuan.pdf">Ministry of Health, Malaysia (Girl)</a>
           </p>
@@ -122,19 +120,19 @@
         selectedGender: "boy",
         selectedChart: "boy-weight",
         genders: [
-          { value: "boy", label: "Boy" },
-          { value: "girl", label: "Girl" },
+          { value: "boy", label: this.$t("home.boy") },
+          { value: "girl", label: this.$t("home.girl") },
         ],
         charts: {
           boy: [
-            { value: "boy-weight", label: "Weight" },
-            { value: "boy-height", label: "Height" },
-            { value: "boy-headcircum", label: "Head Circumference" },
+            { value: "boy-weight", label: this.$t("home.weight") },
+            { value: "boy-height", label: this.$t("home.height") },
+            { value: "boy-headcircum", label: this.$t("home.headcircum") },
           ],
           girl: [
-            { value: "girl-weight", label: "Weight" },
-            { value: "girl-height", label: "Height" },
-            { value: "girl-headcircum", label: "Head Circumference" },
+            { value: "girl-weight", label: this.$t("home.weight") },
+            { value: "girl-height", label: this.$t("home.height") },
+            { value: "girl-headcircum", label: this.$t("home.headcircum") },
           ],
         },
       };
@@ -167,15 +165,6 @@
       }
     },
     mounted() {
-      // Dynamically load Google AdSense script
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
-      script.onload = () => {
-        // Push the ad code once the script is loaded
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-      };
-      document.head.appendChild(script);
     }
   };
   </script>

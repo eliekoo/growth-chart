@@ -1,9 +1,9 @@
 <template>
   <GrowthChart 
     csv-file="g_age_length.csv" 
-    chart-title="Girl Height Chart (0-24 months)" table-title="Girl Height"
-    table-subtitle="Height" 
-    table-measurement="cm" 
+    :chart-title="$t('chart.girl.height.chart_title')" :table-title="$t('chart.girl.height.table_title')"
+    :table-subtitle="$t('chart.girl.height.table_subtitle')" 
+    :table-measurement="$t('chart.girl.height.table_measurement')" 
     :y-axis="yAxisConfig"
   />
 </template>
@@ -13,13 +13,17 @@ import GrowthChart from "./GrowthChart.vue";
 export default {
   name: "GirlHeightChart",
   components: { GrowthChart },
-  yAxisConfig: {
-    title: {
-        text: "Height (cm)"
-    },
-    decimalsInFloat: 2,
-    // min: 0,
-    // max: 17
-  }
+  data() {
+    return {
+      yAxisConfig: {
+        title: {
+          text: this.$t("chart.girl.height.y_axis_title"),
+        },
+        decimalsInFloat: 2,
+        // min: 0,
+        // max: 17
+      },
+    };
+  },
 };
 </script>

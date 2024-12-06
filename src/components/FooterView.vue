@@ -4,8 +4,8 @@
             <div class="ml-3 footer-content mb-4 md:mb-0">
                 <div class="mb-4 md:mb-0">
                     <fwb-avatar class="h-8 mr-3"  rounded alt="Elie Koo Developer" href="https://eliekoo.github.io" name="Elie Koo" img="https://avatars.githubusercontent.com/u/22440942"/>
-                    <fwb-p class="pt-3 self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Created by Elie Koo,</fwb-p>
-                    <fwb-p class="text-gray-500 dark:text-gray-400">A full-time mother balancing caregiving and career aspirations.</fwb-p>
+                    <fwb-p class="pt-3 self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{{ $t("author.me")}}</fwb-p>
+                    <fwb-p class="text-gray-500 dark:text-gray-400">{{ $t("author.description")}}</fwb-p>
                 </div>
             </div>
         </div>

@@ -1,19 +1,126 @@
 {
-    "welcome": "Welcome to Growth Chart App",
+  "home": {
+    "boy": "Boy",
+    "girl": "Girl",
+    "weight": "Weight",
+    "height": "Height",
+    "headcircum": "Head Circumference",
+    "growth_chart": "Infant Growth Chart (0 - 24 months)",
+    "gender": "Gender: ",
+    "chart": "Chart: "
+  },
+  "chartHeaders": {
+    "Month": "Month",
+    "2nd": "2nd (2.3rd)",
+    "5th": "5th",
+    "10th": "10th",
+    "25th": "25th",
+    "50th": "50th",
+    "75th": "75th",
+    "90th": "90th",
+    "95th": "95th",
+    "98th": "98th (97.7th)"
+  },
+  "description": {
+    "perceptile_title": "What is a Percentile?",
+    "perceptile_desc": "A percentile is a statistical measure that shows how a value compares to others within a dataset. It indicates the percentage of data points that are less than a given value.",
+    "for_example": "For example:",
+    "ex_desc": "If your child's weight is in the <span class=\"font-semibold text-blue-600\">60th percentile</span>, it means <strong>60%</strong> of children weigh less than your child, and <strong>40%</strong> weigh more.",
+    "how_to_read": "How to Read Percentile on a Graph?",
+    "perc_point1": "<span class=\"font-semibold text-blue-600\">Percentile lines</span> (e.g., P3, P15, P50, P85, P97) represent various percentiles.",
+    "perc_point2": "<strong>P50 (50th Percentile)</strong>: The median, considered the average or normal value.",
+    "perc_point3": "If your child's measurements fall along or near the <span class=\"font-semibold text-blue-600\">P50 line</span>, it is close to the average for their age and gender.",
+    "perc_point4": "Measurements between P3 and P97 are generally within the normal range. Falling below P3 or above P97 may warrant consulting a healthcare provider.",
+    "learn_more": "Learn More"
+  },
+  "locale": {
+    "english": "English (US)",
+    "malay": "Malay (Malaysia)",
+    "chinese_tw": "Chinese (Traditional)",
+    "chinese_cn": "Chinese (Simplified)"
+  },
+  "footer": {
     "disclaimer": "<strong>Disclaimer:</strong> This chart is intended for informational purposes only and should not be considered medical advice. For personalized medical guidance, please consult a qualified healthcare professional.",
     "note": " <strong>Note:</strong> While every effort has been made to ensure the accuracy of the information, this reference chart may not capture individual medical circumstances or the most recent updates. Always prioritize professional advice for any health-related decisions.",
-    "source": "Data Source: WHO",
-    "design_by": "Design by Elie Koo, a full-time mother looking for job opportunities while taking care of her baby.",
-    "chartHeaders": {
-      "Month": "Month",
-      "2nd": "2nd (2.3rd)",
-      "5th": "5th",
-      "10th": "10th",
-      "25th": "25th",
-      "50th": "50th",
-      "75th": "75th",
-      "90th": "90th",
-      "95th": "95th",
-      "98th": "98th (97.7th)"
+    "data_source": "Data source: "
+  },
+  "author": {
+    "me": "Created by Elie Koo,",
+    "description": "A full-time mother balancing caregiving and career aspirations."
+  },
+  "table": {
+    "age": "Age (Months)",
+    "input_placeholder": "The {value} month {name}"
+  },
+  "chart": {
+    "user_input": "User Input",
+    "growth_line": "Growth Line",
+    "growth_chart": "Growth Chart",
+    "default_value": "Value",
+    "default_measurement": "cm",
+    "boy": {
+      "headc": {
+        "chart_title": "Boy Head Circumference Chart (0-24 months)",
+        "table_title": "Boy Head Circumference",
+        "table_subtitle": "Head Circumference",
+        "table_measurement": "cm",
+        "y_axis_title": "Head Circumference (cm)"
+      },
+      "height": {
+        "chart_title": "Boy Height Chart (0-24 months)",
+        "table_title": "Boy Height",
+        "table_subtitle": "Height",
+        "table_measurement": "cm",
+        "y_axis_title": "Height (cm)"
+      },
+      "weight": {
+        "chart_title": "Boy Weight Chart (0-24 months)",
+        "table_title": "Boy Weight",
+        "table_subtitle": "Weight",
+        "table_measurement": "cm",
+        "y_axis_title": "Weight (cm)"
+      }
+    },
+    "girl": {
+      "headc": {
+        "chart_title": "Girl Head Circumference Chart (0-24 months)",
+        "table_title": "Girl Head Circumference",
+        "table_subtitle": "Head Circumference",
+        "table_measurement": "cm",
+        "y_axis_title": "Head Circumference (cm)"
+      },
+      "height": {
+        "chart_title": "Girl Height Chart (0-24 months)",
+        "table_title": "Girl Height",
+        "table_subtitle": "Height",
+        "table_measurement": "cm",
+        "y_axis_title": "Height (cm)"
+      },
+      "weight": {
+        "chart_title": "Girl Weight Chart (0-24 months)",
+        "table_title": "Girl Weight",
+        "table_subtitle": "Weight",
+        "table_measurement": "cm",
+        "y_axis_title": "Weight (cm)"
+      }
+    }
+  },
+  "knowledge": {
+    "percentile_graph": {
+      "title": "Understanding Percentiles on a Graph",
+      "paragraph1": "Percentiles are a useful statistical measure that helps in understanding how a value compares to other data points in a dataset. When represented on a graph, percentiles provide a clear visual of where a specific value lies in comparison to others.",
+      "paragraph2": " On a growth chart, percentiles such as <strong>P3</strong>, <strong>P15</strong>, <strong>P50 (Median)</strong>, <strong>P85</strong>, and <strong>P97</strong> are used to display how a child's measurements (weight, height, etc.) compare with other children of the same age and gender.",
+      "key_percentiles": "Key Percentiles to Know",
+      "p50": "P50 (50th Percentile)",
+      "p50_desc": " This is the median. If a child's measurement is at the P50 line, it indicates that 50% of children fall below this value and 50% are above.",
+      "p3": "P3 (3rd Percentile)",
+      "p3_desc": " If a child’s measurement is at or below P3, it means they are smaller than 97% of children in the same age group.",
+      "p97": "P97 (97th Percentile)",
+      "p97_desc": " A measurement above P97 means the child is larger than 97% of other children.",
+      "step_read": "How to Read a Growth Chart?",
+      "step1": "When looking at a growth chart, it's important to note that a child’s percentile should be considered alongside other factors like their overall health and family history. A child in the 50th percentile is not necessarily average in terms of health, but it provides a benchmark to compare their growth.",
+      "step2": "Percentile lines on the graph, such as P3, P15, P50, P85, and P97, provide a reference for where the child’s measurements lie. However, always consult a healthcare provider if you have concerns about your child’s growth.",
+      "home_button": "Back to Home"
     }
   }
+}

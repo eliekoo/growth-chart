@@ -9,38 +9,6 @@
             :series="combinedChartSeries"
             height="100%"
           />
-
-          <!-- <div>
-            <fwb-card>
-              <div class="p-5">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                  What is a Percentile?
-                </h5>
-                <p class="font-normal text-gray-700 dark:text-gray-400">
-                  Percentile is a statistical measure indicating the relative position of a value within a dataset. It tells you the percentage of data points that fall below a specific value.
-                </p>
-                <p class="example">Example: If your child's weight is in the 60th percentile, it means 60% of children weigh less than your child, and 40% weigh more.</p>
-              </div>
-            </fwb-card>
-
-            <fwb-card href="#">
-              <div class="p-5">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                  How to Read Percentile on a Graph?
-                </h5>
-                <p class="font-normal text-gray-700 dark:text-gray-400">
-                  v
-                </p>
-                <ul>
-                  <li>Percentile lines (e.g., P3, P15, P50, P85, P97) represent various percentiles.</li>
-                  <li><strong>P50 (50th Percentile):</strong> The median, considered the average or normal value.</li>
-                  <li>If your child's measurements fall along or near the P50 line, it is close to the average for their age and gender.</li>
-                  <li>Measurements between P3 and P97 are generally within the normal range. Falling below P3 or above P97 may warrant consulting a healthcare provider.</li>
-                </ul>
-              </div>
-            </fwb-card>
-                
-          </div> -->
         </div>
       </div>
   
@@ -50,8 +18,8 @@
           <table>
             <thead>
               <tr>
-                <th>Age (Months)</th>
-                <th>{{tableSubtitle}} ({{ tableMeasurement }})</th>
+                <th>{{ $t("table.age") }}</th>
+                <th>{{ tableSubtitle }} ({{ tableMeasurement }})</th>
               </tr>
             </thead>
             <tbody>
@@ -61,7 +29,7 @@
                   <fwb-input 
                       type="number"
                       v-model="weights[index]"
-                      :placeholder="tableTitle"
+                      :placeholder="$t('table.input_placeholder', {value: index, name: tableTitle})"
                       @input="updateChart" 
                       size="sm" 
                     />
@@ -173,7 +141,7 @@
         const userData = this.weights.map((w) => (w !== null ? w : null));
         return [
           ...this.initialChartData,
-          { name: "User Input", data: userData }
+          { name: this.$t("chart.user_input"), data: userData }
         ];
       }
     },

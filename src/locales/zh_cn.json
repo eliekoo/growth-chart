@@ -1,7 +1,126 @@
 {
-    "welcome": "欢迎使用成长曲线应用程序",
-    "disclaimer": "这是一个参考图表，不能替代专业建议。",
-    "source": "数据来源：世界卫生组织 (WHO)",
-    "design_by": "设计者：Elie Koo，全职妈妈，一边照顾孩子，一边寻找工作机会。"
+  "home": {
+    "boy": "男孩",
+    "girl": "女孩",
+    "weight": "体重",
+    "height": "身高",
+    "headcircum": "头围",
+    "growth_chart": "婴幼儿成长图表 (0 - 24 个月)",
+    "gender": "性别: ",
+    "chart": "图表: "
+  },
+  "chartHeaders": {
+    "Month": "月龄",
+    "2nd": "第2百分位 (2.3th)",
+    "5th": "第5百分位",
+    "10th": "第10百分位",
+    "25th": "第25百分位",
+    "50th": "第50百分位",
+    "75th": "第75百分位",
+    "90th": "第90百分位",
+    "95th": "第95百分位",
+    "98th": "第98百分位 (97.7th)"
+  },
+  "description": {
+    "perceptile_title": "什么是百分位？",
+    "perceptile_desc": "百分位是一种统计指标，用来表示某数值在数据集中所处的相对位置。它告诉您低于该数值的数据比例。",
+    "for_example": "例如：",
+    "ex_desc": "如果您孩子的体重处于 <span class=\"font-semibold text-blue-600\">第60百分位</span>，这表示 <strong>60%</strong> 的孩子体重比您的孩子轻，而 <strong>40%</strong> 比您的孩子重。",
+    "how_to_read": "如何阅读图表上的百分位？",
+    "perc_point1": "<span class=\"font-semibold text-blue-600\">百分位线</span> (如 P3、P15、P50、P85、P97) 代表不同的百分位值。",
+    "perc_point2": "<strong>P50 (第50百分位)</strong>: 中位数，通常被视为平均或正常值。",
+    "perc_point3": "如果孩子的测量值在<span class=\"font-semibold text-blue-600\">P50线</span>上或附近，则接近其年龄和性别的平均值。",
+    "perc_point4": "测量值在 P3 至 P97 之间通常属于正常范围。低于 P3 或高于 P97 时，建议咨询医疗专家。",
+    "learn_more": "了解更多"
+  },
+  "locale": {
+    "english": "英文 (美国)",
+    "malay": "马来文 (马来西亚)",
+    "chinese_tw": "中文 (繁体)",
+    "chinese_cn": "中文 (简体)"
+  },
+  "footer": {
+    "disclaimer": "<strong>免责声明：</strong>此图表仅供参考，并不构成医疗建议。如需个性化医疗指导，请咨询专业医疗人士。",
+    "note": "<strong>注意：</strong>尽管已尽力确保信息的准确性，此参考图表可能未考虑个人医疗状况或最新更新。在任何健康相关决策中，请优先考虑专业意见。",
+    "data_source": "数据来源："
+  },
+  "author": {
+    "me": "由 Elie Koo 制作，",
+    "description": "一位平衡育儿和职业抱负的全职母亲。"
+  },
+  "table": {
+    "age": "月龄 (个月)",
+    "input_placeholder": "{value} 个月的 {name}"
+  },
+  "chart": {
+    "user_input": "用户输入",
+    "growth_line": "成长曲线",
+    "growth_chart": "成长图表",
+    "default_value": "数值",
+    "default_measurement": "厘米",
+    "boy": {
+      "headc": {
+        "chart_title": "男孩头围图表 (0-24 个月)",
+        "table_title": "男孩头围",
+        "table_subtitle": "头围",
+        "table_measurement": "厘米",
+        "y_axis_title": "头围 (厘米)"
+      },
+      "height": {
+        "chart_title": "男孩身高图表 (0-24 个月)",
+        "table_title": "男孩身高",
+        "table_subtitle": "身高",
+        "table_measurement": "厘米",
+        "y_axis_title": "身高 (厘米)"
+      },
+      "weight": {
+        "chart_title": "男孩体重图表 (0-24 个月)",
+        "table_title": "男孩体重",
+        "table_subtitle": "体重",
+        "table_measurement": "厘米",
+        "y_axis_title": "体重 (厘米)"
+      }
+    },
+    "girl": {
+      "headc": {
+        "chart_title": "女孩头围图表 (0-24 个月)",
+        "table_title": "女孩头围",
+        "table_subtitle": "头围",
+        "table_measurement": "厘米",
+        "y_axis_title": "头围 (厘米)"
+      },
+      "height": {
+        "chart_title": "女孩身高图表 (0-24 个月)",
+        "table_title": "女孩身高",
+        "table_subtitle": "身高",
+        "table_measurement": "厘米",
+        "y_axis_title": "身高 (厘米)"
+      },
+      "weight": {
+        "chart_title": "女孩体重图表 (0-24 个月)",
+        "table_title": "女孩体重",
+        "table_subtitle": "体重",
+        "table_measurement": "厘米",
+        "y_axis_title": "体重 (厘米)"
+      }
+    }
+  },
+  "knowledge": {
+    "percentile_graph": {
+      "title": "理解图表中的百分位",
+      "paragraph1": "百分位是一种有用的统计指标，帮助您了解某个数值相较于数据集中其他数据的位置。在图表上，百分位可以清楚地显示某个数值与其他数值的比较。",
+      "paragraph2": "在成长图表中，百分位如 <strong>P3</strong>、<strong>P15</strong>、<strong>P50 (中位数)</strong>、<strong>P85</strong> 和 <strong>P97</strong>，用来显示孩子的测量值 (例如体重、身高等) 与相同性别及年龄的其他孩子相比的情况。",
+      "key_percentiles": "需要了解的关键百分位",
+      "p50": "P50 (第50百分位)",
+      "p50_desc": "这是中位数。如果孩子的测量值在 P50 线上，这表示 50% 的孩子测量值低于该数值，而 50% 的孩子高于该数值。",
+      "p3": "P3 (第3百分位)",
+      "p3_desc": "如果孩子的测量值在 P3 或以下，这表示他们比相同年龄组的 97% 孩子更小。",
+      "p97": "P97 (第97百分位)",
+      "p97_desc": "高于 P97 的测量值表示孩子比其他 97% 的孩子更大。",
+      "step_read": "如何阅读成长图表？",
+      "step1": "在查看成长图表时，孩子的百分位应结合整体健康状况和家族历史考虑。一个处于第50百分位的孩子并不一定代表健康上的平均，但可以作为比较其成长的基准。",
+      "step2": "图表上的百分位线，例如 P3、P15、P50、P85 和 P97，为孩子的测量值提供参考。不过，若对孩子的成长有任何疑问，请随时咨询医疗专家。",
+      "home_button": "返回首页"
+    }
   }
-  
+}

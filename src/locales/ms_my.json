@@ -1,7 +1,126 @@
 {
-    "welcome": "Selamat datang ke Aplikasi Carta Pertumbuhan",
-    "disclaimer": "Ini adalah carta rujukan dan tidak boleh menggantikan nasihat profesional.",
-    "source": "Sumber Data: WHO",
-    "design_by": "Direka oleh Elie Koo, seorang ibu sepenuh masa yang mencari peluang kerja sambil menjaga bayinya."
+  "home": {
+    "boy": "Lelaki",
+    "girl": "Perempuan",
+    "weight": "Berat",
+    "height": "Tinggi",
+    "headcircum": "Lilitan Kepala",
+    "growth_chart": "Carta Pertumbuhan Bayi (0 - 24 bulan)",
+    "gender": "Jantina: ",
+    "chart": "Carta: "
+  },
+  "chartHeaders": {
+    "Month": "Bulan",
+    "2nd": "2nd (2.3rd)",
+    "5th": "5th",
+    "10th": "10th",
+    "25th": "25th",
+    "50th": "50th",
+    "75th": "75th",
+    "90th": "90th",
+    "95th": "95th",
+    "98th": "98th (97.7th)"
+  },
+  "description": {
+    "perceptile_title": "Apakah Peratusan?",
+    "perceptile_desc": "Peratusan adalah ukuran statistik yang menunjukkan kedudukan relatif sesuatu nilai dalam satu set data. Ia menunjukkan peratusan titik data yang lebih rendah daripada nilai tertentu.",
+    "for_example": "Sebagai contoh:",
+    "ex_desc": "Jika berat anak anda berada dalam <span class=\"font-semibold text-blue-600\">peratusan ke-60</span>, ini bermaksud <strong>60%</strong> kanak-kanak mempunyai berat yang lebih ringan, dan <strong>40%</strong> mempunyai berat yang lebih tinggi.",
+    "how_to_read": "Bagaimana Membaca Peratusan pada Carta?",
+    "perc_point1": "<span class=\"font-semibold text-blue-600\">Garis peratusan</span> (contohnya, P3, P15, P50, P85, P97) menunjukkan pelbagai peratusan.",
+    "perc_point2": "<strong>P50 (Peratusan ke-50)</strong>: Median, dianggap sebagai nilai purata atau normal.",
+    "perc_point3": "Jika ukuran anak anda berada di sepanjang atau berhampiran garis <span class=\"font-semibold text-blue-600\">P50</span>, ia dekat dengan purata untuk umur dan jantinanya.",
+    "perc_point4": "Ukuran antara P3 dan P97 umumnya berada dalam julat normal. Sekiranya berada di bawah P3 atau di atas P97, sila rujuk pakar kesihatan.",
+    "learn_more": "Ketahui Lebih Lanjut"
+  },
+  "locale": {
+    "english": "Bahasa Inggeris (AS)",
+    "malay": "Bahasa Melayu (Malaysia)",
+    "chinese_tw": "Bahasa Cina (Tradisional)",
+    "chinese_cn": "Bahasa Cina (Ringkas)"
+  },
+  "footer": {
+    "disclaimer": "<strong>Penafian:</strong> Carta ini hanya untuk tujuan maklumat dan tidak boleh dianggap sebagai nasihat perubatan. Untuk panduan perubatan yang disesuaikan, sila rujuk pakar kesihatan yang berkelayakan.",
+    "note": "<strong>Nota:</strong> Walaupun segala usaha telah dibuat untuk memastikan ketepatan maklumat, carta rujukan ini mungkin tidak merangkumi keadaan perubatan individu atau kemas kini terkini. Sentiasa utamakan nasihat profesional untuk sebarang keputusan berkaitan kesihatan.",
+    "data_source": "Sumber data: "
+  },
+  "author": {
+    "me": "Dicipta oleh Elie Koo,",
+    "description": "Seorang ibu sepenuh masa yang mengimbangi penjagaan anak dan cita-cita kerjaya."
+  },
+  "table": {
+    "age": "Umur (Bulan)",
+    "input_placeholder": "Bulan {value} {name}"
+  },
+  "chart": {
+    "user_input": "Input Pengguna",
+    "growth_line": "Garis Pertumbuhan",
+    "growth_chart": "Carta Pertumbuhan",
+    "default_value": "Nilai",
+    "default_measurement": "cm",
+    "boy": {
+      "headc": {
+        "chart_title": "Carta Lilitan Kepala Lelaki (0-24 bulan)",
+        "table_title": "Lilitan Kepala Lelaki",
+        "table_subtitle": "Lilitan Kepala",
+        "table_measurement": "cm",
+        "y_axis_title": "Lilitan Kepala (cm)"
+      },
+      "height": {
+        "chart_title": "Carta Tinggi Lelaki (0-24 bulan)",
+        "table_title": "Tinggi Lelaki",
+        "table_subtitle": "Tinggi",
+        "table_measurement": "cm",
+        "y_axis_title": "Tinggi (cm)"
+      },
+      "weight": {
+        "chart_title": "Carta Berat Lelaki (0-24 bulan)",
+        "table_title": "Berat Lelaki",
+        "table_subtitle": "Berat",
+        "table_measurement": "cm",
+        "y_axis_title": "Berat (cm)"
+      }
+    },
+    "girl": {
+      "headc": {
+        "chart_title": "Carta Lilitan Kepala Perempuan (0-24 bulan)",
+        "table_title": "Lilitan Kepala Perempuan",
+        "table_subtitle": "Lilitan Kepala",
+        "table_measurement": "cm",
+        "y_axis_title": "Lilitan Kepala (cm)"
+      },
+      "height": {
+        "chart_title": "Carta Tinggi Perempuan (0-24 bulan)",
+        "table_title": "Tinggi Perempuan",
+        "table_subtitle": "Tinggi",
+        "table_measurement": "cm",
+        "y_axis_title": "Tinggi (cm)"
+      },
+      "weight": {
+        "chart_title": "Carta Berat Perempuan (0-24 bulan)",
+        "table_title": "Berat Perempuan",
+        "table_subtitle": "Berat",
+        "table_measurement": "cm",
+        "y_axis_title": "Berat (cm)"
+      }
+    }
+  },
+  "knowledge": {
+    "percentile_graph": {
+      "title": "Memahami Peratusan pada Carta",
+      "paragraph1": "Peratusan adalah ukuran statistik yang berguna untuk memahami bagaimana sesuatu nilai dibandingkan dengan titik data lain dalam satu set data. Apabila ditunjukkan pada carta, peratusan memberikan gambaran jelas tentang kedudukan sesuatu nilai berbanding nilai lain.",
+      "paragraph2": "Pada carta pertumbuhan, peratusan seperti <strong>P3</strong>, <strong>P15</strong>, <strong>P50 (Median)</strong>, <strong>P85</strong>, dan <strong>P97</strong> digunakan untuk menunjukkan bagaimana ukuran anak (berat, tinggi, dsb.) dibandingkan dengan kanak-kanak lain yang sebaya dan sejantina.",
+      "key_percentiles": "Peratusan Utama yang Perlu Diketahui",
+      "p50": "P50 (Peratusan ke-50)",
+      "p50_desc": "Ini adalah median. Jika ukuran anak berada di garis P50, ia menunjukkan bahawa 50% kanak-kanak berada di bawah nilai ini dan 50% di atas.",
+      "p3": "P3 (Peratusan ke-3)",
+      "p3_desc": "Jika ukuran anak berada pada atau di bawah P3, ia bermaksud mereka lebih kecil daripada 97% kanak-kanak dalam kumpulan umur yang sama.",
+      "p97": "P97 (Peratusan ke-97)",
+      "p97_desc": "Ukuran di atas P97 bermaksud anak lebih besar daripada 97% kanak-kanak lain.",
+      "step_read": "Bagaimana Membaca Carta Pertumbuhan?",
+      "step1": "Apabila melihat carta pertumbuhan, peratusan anak harus dipertimbangkan bersama faktor lain seperti kesihatan keseluruhan dan sejarah keluarga. Seorang anak dalam peratusan ke-50 tidak semestinya purata dari segi kesihatan, tetapi ia memberikan penanda aras untuk membandingkan pertumbuhan mereka.",
+      "step2": "Garis peratusan pada carta, seperti P3, P15, P50, P85, dan P97, menyediakan rujukan untuk kedudukan ukuran anak. Walau bagaimanapun, sentiasa rujuk pakar kesihatan jika anda mempunyai kebimbangan tentang pertumbuhan anak.",
+      "home_button": "Kembali ke Halaman Utama"
+    }
   }
-  
+}

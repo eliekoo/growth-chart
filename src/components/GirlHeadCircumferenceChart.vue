@@ -1,9 +1,9 @@
 <template>
   <GrowthChart 
     csv-file="g_age_headc.csv" 
-    chart-title="Girl Head Circumference Chart (0-24 months)" table-title="Girl Head Circumference"
-    table-subtitle="Head Circumference" 
-    table-measurement="cm" 
+    :chart-title="$t('chart.girl.headc.chart_title')" :table-title="$t('chart.girl.headc.table_title')"
+    :table-subtitle="$t('chart.girl.headc.table_subtitle')" 
+    :table-measurement="$t('chart.girl.headc.table_measurement')" 
     :y-axis="yAxisConfig"
   />
 </template>
@@ -13,13 +13,17 @@ import GrowthChart from "./GrowthChart.vue";
 export default {
   name: "GirlHeadCircumferenceChart",
   components: { GrowthChart },
-  yAxisConfig: {
-    title: {
-        text: "Head Circumference (cm)"
-    },
-    decimalsInFloat: 2,
-    // min: 0,
-    // max: 17
-  }
+  data() {
+    return {
+      yAxisConfig: {
+        title: {
+          text: this.$t("chart.girl.headc.y_axis_title"),
+        },
+        decimalsInFloat: 2,
+        // min: 0,
+        // max: 17
+      },
+    };
+  },
 };
 </script>
