@@ -1,4 +1,5 @@
 <template>
+    <NavigationBar />
     <header class="app-header">
         <h1>{{ $t("home.growth_chart") }}</h1>
         <div class="button-group">
@@ -90,17 +91,18 @@
   </template>
   
   <script>
-  import BoyWeight from "./BoyWeightChart.vue";
-  import BoyHeight from "./BoyHeightChart.vue";
-  import BoyHeadCircumference from "./BoyHeadCircumferenceChart.vue";
+  import BoyWeight from "@/components/views/infants/BoyWeightChart.vue";
+  import BoyHeight from "@/components/views/infants/BoyHeightChart.vue";
+  import BoyHeadCircumference from "@/components/views/infants/BoyHeadCircumferenceChart.vue";
   
-  import GirlHeight from "./GirlHeightChart.vue";
-  import GirlWeight from "./GirlWeightChart.vue";
-  import GirlHeadCircumference from "./GirlHeadCircumferenceChart.vue";
+  import GirlHeight from "@/components/views/infants/GirlHeightChart.vue";
+  import GirlWeight from "@/components/views/infants/GirlWeightChart.vue";
+  import GirlHeadCircumference from "@/components/views/infants/GirlHeadCircumferenceChart.vue";
   
-  import '../assets/app.css';
+  import '@/assets/app.css';
   import FooterView from "./FooterView.vue";
   import CardView from "./CardView.vue";
+  import NavigationBar from "@/components/views/NavigationBar.vue"; // Adjust the path if needed
   
   
   export default {
@@ -112,7 +114,8 @@
       GirlWeight,
       GirlHeadCircumference,
       FooterView,
-      CardView
+      CardView,
+      NavigationBar
     },
     data() {
       return {

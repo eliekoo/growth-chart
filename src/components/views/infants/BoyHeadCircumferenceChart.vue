@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import GrowthChart from "./GrowthChart.vue";
+import GrowthChart from "@/components/views/GrowthChart.vue";
 export default {
   name: "BoyHeadCircumferenceChart",
   components: { GrowthChart },

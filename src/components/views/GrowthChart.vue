@@ -50,7 +50,7 @@
 
   <script>
   import VueApexCharts from "vue3-apexcharts";
-  import '/src/assets/chart.css';
+  import '@/assets/chart.css';
   
   export default {
     name: "GrowthChartBase",
@@ -156,7 +156,7 @@
       async loadCSV() {
           
           try {
-            const response = await fetch(`/data/${this.csvFile}`);
+            const response = await fetch(`/data/infants/${this.csvFile}`);
             const csvContent = await response.text();
             this.initialChartData = this.parseCSV(csvContent);
             console.log("load csv",this.initialChartData);
